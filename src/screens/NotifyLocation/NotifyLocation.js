@@ -15,6 +15,7 @@ const NotifyLocation = ({navigation}) => {
             <TouchableOpacity style={styles.buttonContainer} onPress={() => navigation.navigate("NavigationTab")}>
                 <Text style={styles.buttonText}>Yes, notify me</Text>
             </TouchableOpacity>
+            
             <TouchableOpacity style={styles.skipButton} onPress={() => navigation.navigate("NavigationTab")}>
                 <Text style={styles.skipText}>Skip</Text>
             </TouchableOpacity>
