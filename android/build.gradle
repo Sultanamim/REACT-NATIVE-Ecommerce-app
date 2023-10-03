@@ -11,6 +11,16 @@ buildscript {
 
         // We use NDK 23 which has both M1 support and is the side-by-side NDK version from AGP.
         ndkVersion = "23.1.7779620"
+
+         compileSdkVersion   = 28
+  buildToolsVersion   = "28.0.3"
+  minSdkVersion       = 16
+  targetSdkVersion    = 28
+
+  // Any of the following will work
+  googlePlayServicesVersion      = "17.0.0"
+  // playServicesVersion         = "17.0.0"
+  // playServicesLocationVersion = "17.0.0"
     }
     repositories {
         google()
@@ -19,6 +29,14 @@ buildscript {
     dependencies {
         classpath('com.android.tools.build:gradle:7.4.2')
         classpath('com.facebook.react:react-native-gradle-plugin')
+
+        
+    implementation(project(':react-native-geolocation-service')) {
+        exclude group: 'com.google.android.gms', module: 'play-services-location'
+    }
+    implementation 'com.google.android.gms:play-services-location:<insert your play service version here>'
+
+    implementation project(':react-native-community-checkbox')
     }
 }
 
