@@ -19,3 +19,5 @@ export {default as SignUp} from '../screens/SignUp/Signup';
 // NavigationTab Screens
 export {default as NavigationTab} from '../screens/NavigationTab/NavigationTab';
 
+// Other Screens
+export {default as CategoriesScreen} from '../screens/Categories/CategoriesScreen';

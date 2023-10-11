@@ -18,7 +18,8 @@ import { NavigationContainer } from "@react-navigation/native";
    SignUp,
    NotifyLocation,
    Home,
-   NavigationTab
+   NavigationTab,
+   CategoriesScreen
  } from "./src/screens";
 
 
@@ -32,7 +33,6 @@ export default function App() {
     Source_Sans3_SemiBold: require("./src/assets/fonts/Source_Sans_3/static/SourceSans3-SemiBold.ttf"),
     Source_Sans3_Bold: require("./src/assets/fonts/Source_Sans_3/static/SourceSans3-Bold.ttf"),
     Source_Sans3_Medium: require("./src/assets/fonts/Source_Sans_3/static/SourceSans3-Medium.ttf"),
-    Nunito_Italic: require("./src/assets/fonts/Nunito/Nunito-Italic-VariableFont_wght.ttf"),
     Nunito_Bold: require("./src/assets/fonts/Nunito/static/Nunito-Bold.ttf"),
     Nunito_ExtraBold: require("./src/assets/fonts/Nunito/static/Nunito-ExtraBold.ttf"),
     Nunito_Regular: require("./src/assets/fonts/Nunito/static/Nunito-Regular.ttf"),
@@ -73,6 +73,7 @@ export default function App() {
 
           {/* Navigation Tab => It,s an Home screen for other screens */}
           <Stack.Screen name="NavigationTab" component={NavigationTab} />
+          <Stack.Screen name="Categories" component={CategoriesScreen} />
 
         </Stack.Navigator>
       </NavigationContainer>
@@ -81,5 +82,7 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-
+  container: {
+    backgroundColor: "#fff",
+  }
 });

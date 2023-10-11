@@ -3,15 +3,16 @@ import React, { Component } from "react";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
 import SearchContainer from "./SearchSection/SearchContainer";
 import CategoriesSection from "./CategoriesSection/CategoriesSection";
+import ProductSection from "./ProductSection/ProductSection";
 import { moderateScale } from "react-native-size-matters";
 
 // create a component
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
   return (
     <ScrollView vertical={true} style={styles.container}>
       {/* -----  Search Container ------- */}
       <View style={styles.searchContainer}>
-        <SearchContainer />
+        <SearchContainer navigation={navigation} />
       </View>
       {/* -------- */}
 
@@ -20,6 +21,12 @@ const HomeScreen = () => {
         <CategoriesSection />
       </View>
       {/* -------- */}
+      {/* -----  Products Container ------- */}
+      <View style={styles.productsContainer}>
+        <ProductSection />
+      </View>
+      {/* -------- */}
+
     </ScrollView>
   );
 };

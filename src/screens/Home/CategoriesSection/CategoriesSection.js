@@ -1,4 +1,4 @@
-//import liraries
+
 import React, { Component } from "react";
 import {
   View,
@@ -16,7 +16,7 @@ import CycleImg from "../../../assets/home-images/cycle.png";
 import { moderateScale } from "react-native-size-matters";
 
 // create a component
-const MyComponent = () => {
+const CategoriesSection = () => {
   return (
     <ScrollView
       horizontal={true}
@@ -48,7 +48,6 @@ const MyComponent = () => {
   );
 };
 
-// define your styles
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
@@ -120,5 +119,5 @@ const styles = StyleSheet.create({
   },
 });
 
-//make this component available to the app
-export default MyComponent;
+
+export default CategoriesSection;

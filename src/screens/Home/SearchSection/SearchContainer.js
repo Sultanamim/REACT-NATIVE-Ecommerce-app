@@ -1,4 +1,4 @@
-//import liraries
+
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
 import { Image } from "expo-image";
@@ -7,15 +7,14 @@ import LocationImg from  "../../../assets/home-images/location-orange.png";
 import CatogoryIcon from "../../../assets/home-images/categories.png";
 import { moderateScale } from "react-native-size-matters";
 
-// create a component
-const MyComponent = () => {
+const SearchSection = (props) => {
     return (
         <>
             <View style={[styles.inputContainer, styles.shadowProp]}>
                 <Image source={SearchImg} style={styles.searchImg} />
                 <TextInput style={styles.SearchInput} placeholder="Search here" placeholderTextColor="#464646" />
             </View>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => props.navigation.navigate("Categories")}>
                 <Image source={CatogoryIcon} style={styles.categoryIcon} />
             </TouchableOpacity>
             <TouchableOpacity>
@@ -25,7 +24,6 @@ const MyComponent = () => {
     );
 };
 
-// define your styles
 const styles = StyleSheet.create({
     searchImg: {
         width: moderateScale(13.51),
@@ -69,5 +67,5 @@ const styles = StyleSheet.create({
       
 });
 
-// make this component available to the app
-export default MyComponent;
+
+export default SearchSection;
