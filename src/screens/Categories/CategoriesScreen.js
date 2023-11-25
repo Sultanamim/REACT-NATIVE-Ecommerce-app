@@ -7,13 +7,23 @@ import {
   Image,
   TouchableOpacity,
 } from "react-native"; // Import Image from 'react-native'
-import { Data } from "../Data/data";
-import LineImg from "../../assets/category-icons/line.png";
-import LeftChevronImg from "../../assets/category-icons/left-chevron.png";
-import RightChevronImg from "../../assets/category-icons/right-chevron.png";
+import  Data  from "../Data/data";
+import LineImg from "../../assets/category-icons/line.svg";
+import LeftChevronImg from "../../assets/category-icons/left-chevron.svg";
+import RightChevronImg from "../../assets/category-icons/right-chevron.svg";
 import { moderateScale } from "react-native-size-matters";
+import { Pressable } from "react-native";
 
 const CategoriesScreen = ({ navigation }) => {
+  const handleCategoryPress = (category) => {
+    if (category.subCategories) {
+      // Navigate to the sub-menu screen with the category data
+      navigation.navigate("SubCategory", {
+        subCategories: category.subCategories,
+        category: category,
+      });
+    }
+  };
   return (
     <View style={styles.container}>
       <View style={styles.topContent}>
@@ -25,35 +35,34 @@ const CategoriesScreen = ({ navigation }) => {
         </TouchableOpacity>
       </View>
       <ScrollView vertical={true} style={styles.mainContainer}>
-        {Data.categories.map(
-          (
-            item,
-            index // Use parentheses to return JSX inside the map function
-          ) => (
-            <>
-              <View style={styles.viewBox}>
-                <View key={index} style={styles.imageContainer}>
-                  <Image
-                    source={item.image.url} // Use 'source' instead of 'src' for Image component
-                    style={{
-                      width: item.image.width,
-                      height: item.image.height,
-                      alignSelf: "center",
-                      justifyContent: "center",
-                    }}
-                  />
-                </View>
-                <View style={styles.otherContent}>
-                  <Text style={styles.imgText}>{item.name}</Text>
-                </View>
+        {Data.categories.map((category, index) => (
+          <>
+            <View style={styles.viewBox} key={index}>
+              <View style={styles.imageContainer}>
                 <Image
-                    source={RightChevronImg}
-                    style={styles.rightarrowImg}
-                  />
+                  source={category.image.url}
+                  style={{
+                    width: category.image.width,
+                    height: category.image.height,
+                    alignSelf: "center",
+                    justifyContent: "center",
+                  }}
+                />
               </View>
-            </>
-          )
-        )}
+              <Pressable
+                key={index}
+                onLongPress={() => handleCategoryPress(category)}
+                delayLongPress={80}
+                style={styles.touchContainer}
+              >
+                <View style={styles.otherContent}>
+                  <Text style={styles.imgText}>{category.name}</Text>
+                </View>
+              </Pressable>
+              <Image source={RightChevronImg} style={styles.rightarrowImg} />
+            </View>
+          </>
+        ))}
       </ScrollView>
     </View>
   );
@@ -68,7 +77,7 @@ const styles = StyleSheet.create({
   },
   mainContainer: {
     flexDirection: "column",
-    paddingHorizontal: moderateScale(10),
+    paddingHorizontal: moderateScale(4),
   },
   leftArrowImg: {
     width: moderateScale(6.6),
@@ -108,12 +117,18 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     width: moderateScale(5.02),
     height: moderateScale(10.63),
+    right: moderateScale(10),
   },
   imgText: {
     textAlign: "left",
     alignSelf: "center",
     fontSize: 17,
     fontFamily: "Source_Sans3_Regular",
+  },
+  touchContainer: {
+    flex: 1,
+    flexDirection: "row",
+    width: "100%",
   },
 });
 

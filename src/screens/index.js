@@ -21,3 +21,5 @@ export {default as NavigationTab} from '../screens/NavigationTab/NavigationTab';
 
 // Other Screens
 export {default as CategoriesScreen} from '../screens/Categories/CategoriesScreen';
+export {default as SubCategoryScreen} from '../screens/SubCategories/SubCategoryScreen';
+export {default as SearchProductScreen} from '../screens/SearchProductScreen/SearchProductScreen';

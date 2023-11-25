@@ -7,27 +7,28 @@ import ProductSection from "./ProductSection/ProductSection";
 import { moderateScale } from "react-native-size-matters";
 
 // create a component
-const HomeScreen = ({navigation}) => {
+const HomeScreen = ({ navigation }) => {
   return (
-    <ScrollView vertical={true} style={styles.container}>
+    <View style={styles.container}>
       {/* -----  Search Container ------- */}
       <View style={styles.searchContainer}>
         <SearchContainer navigation={navigation} />
       </View>
       {/* -------- */}
 
-      {/* -----  Categories Container ------- */}
-      <View style={styles.categoryContainer}>
-        <CategoriesSection />
-      </View>
-      {/* -------- */}
-      {/* -----  Products Container ------- */}
-      <View style={styles.productsContainer}>
-        <ProductSection />
-      </View>
-      {/* -------- */}
-
-    </ScrollView>
+      <ScrollView vertical={true} style={styles.scrollContainer}>
+        {/* -----  Categories Container ------- */}
+        <View style={styles.categoryContainer}>
+          <CategoriesSection />
+        </View>
+        {/* -------- */}
+        {/* -----  Products Container ------- */}
+        <View style={styles.productsContainer}>
+          <ProductSection />
+        </View>
+        {/* -------- */}
+      </ScrollView>
+    </View>
   );
 };
 
@@ -44,8 +45,8 @@ const styles = StyleSheet.create({
   },
   categoryContainer: {
     marginTop: moderateScale(13.9),
-
-  }
+  },
+  
 });
 
 export default HomeScreen;

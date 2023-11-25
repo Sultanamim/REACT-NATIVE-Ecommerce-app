@@ -19,7 +19,9 @@ import { NavigationContainer } from "@react-navigation/native";
    NotifyLocation,
    Home,
    NavigationTab,
-   CategoriesScreen
+   CategoriesScreen,
+   SubCategoryScreen,
+   SearchProductScreen
  } from "./src/screens";
 
 
@@ -74,6 +76,8 @@ export default function App() {
           {/* Navigation Tab => It,s an Home screen for other screens */}
           <Stack.Screen name="NavigationTab" component={NavigationTab} />
           <Stack.Screen name="Categories" component={CategoriesScreen} />
+          <Stack.Screen name="SubCategory" component={SubCategoryScreen} />
+          <Stack.Screen name="SearchProductScreen" component={SearchProductScreen} />
 
         </Stack.Navigator>
       </NavigationContainer>
